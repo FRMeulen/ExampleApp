@@ -5,7 +5,10 @@
 
 //	Include files.
 #include "ExampleGui.h"
-#include <iostream>
+
+//	Definitions.
+#define startScreenPage 0
+#define exampleScreenPage 1
 
 //	Constructor.
 //	Parameters:	none.
@@ -23,7 +26,7 @@ CExampleGui::CExampleGui() {
 	m_window->show_all_children();
 
 	//	Configure notebook.
-	m_pages->set_show_tabs(true);
+	m_pages->set_show_tabs(false);
 }
 
 //	Destructor.
@@ -36,8 +39,20 @@ CExampleGui::~CExampleGui() {
 //	Parameters:	none.
 //	Returns:	void.
 void CExampleGui::start() {
+	m_pages->set_current_page(startScreenPage);
 	m_window->show_all_children();
 	app->run(*m_window);
+}
+
+//	swapScreen	--	Switches active screen.
+//	Parameters:
+//		newScreen	--	String of screen name.
+//	Returns:	void.
+void CExampleGui::swapScreen(std::string newScreen) {
+	if (newScreen == "startscreen")
+		m_pages->set_current_page(startScreenPage);
+	else if (newScreen == "examplescreen")
+		m_pages->set_current_page(exampleScreenPage);
 }
 
 //	getWindow	--	Returns pointer to window.

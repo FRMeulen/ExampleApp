@@ -27,6 +27,5 @@ public:
 	virtual ~CExampleScreen();
 
 	//	Methods.
-	void show();
 	void swapScreen(std::string newScreen);
 };

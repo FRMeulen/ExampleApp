@@ -19,9 +19,6 @@ int main() {
 	CStartScreen *m_start = new CStartScreen(*m_gui);
 	CExampleScreen *m_screen = new CExampleScreen(*m_gui);
 	
-	//	Show start screen.
-	m_start->show();
-
 	//	Start gui.
 	m_gui->start();
 

@@ -5,10 +5,6 @@
 
 //	Include files.
 #include "ExampleScreen.h"
-#include <iostream>
-
-//	Definitions.
-#define examplePageNum 1
 
 //	Constructor.
 //	Parameters:
@@ -40,20 +36,10 @@ CExampleScreen::~CExampleScreen() {
 	delete m_exampleMainBox;
 }
 
-//	show	--	Tells window to display this screen.
-//	Parameters:	none.
-//	Returns:	void.
-void CExampleScreen::show() {
-	m_gui->getNotebook()->set_current_page(0);
-}
-
 //	swapScreen	--	Tells window to switch screens.
 //	Parameters:
 //		newScreen	--	String of new screen name.
 //	Returns:	void.
 void CExampleScreen::swapScreen(std::string newScreen) {
-	if (newScreen == "startscreen")
-		m_gui->getStartScreen()->show();
-	else if (newScreen == "examplescreen")
-		m_gui->getExampleScreen()->show();
+	m_gui->swapScreen(newScreen);
 }

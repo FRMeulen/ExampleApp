@@ -31,6 +31,7 @@ public:
 
 	//	Methods.
 	void start();
+	void swapScreen(std::string newScreen);
 
 	//	Getters.
 	Gtk::Window* getWindow();

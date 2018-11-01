@@ -5,10 +5,6 @@
 
 //	Include files.
 #include "StartScreen.h"
-#include <iostream>
-
-//	Definitions.
-#define startPageNum 0
 
 //	Constructor
 //	Parameters:
@@ -40,20 +36,10 @@ CStartScreen::~CStartScreen() {
 	delete m_startMainBox;
 }
 
-//	show	--	Tells window to display this screen.
-//	Parameters:	none.
-//	Returns:	void.
-void CStartScreen::show() {
-	m_gui->getNotebook()->set_current_page(startPageNum);
-}
-
 //	swapScreen	--	Tells window to switch screens.
 //	Parameters:
 //		newScreen	--	String of new screen name.
 //	Returns:	void.
 void CStartScreen::swapScreen(std::string newScreen) {
-	if (newScreen == "startscreen")
-		m_gui->getStartScreen()->show();
-	else if (newScreen == "examplescreen")
-		m_gui->getExampleScreen()->show();
+	m_gui->swapScreen(newScreen);
 }

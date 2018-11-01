@@ -27,6 +27,5 @@ public:
 	virtual ~CStartScreen();
 
 	//	Methods.
-	void show();
 	void swapScreen(std::string newScreen);
 };
