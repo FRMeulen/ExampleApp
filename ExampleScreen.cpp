@@ -5,41 +5,46 @@
 
 //	Include files.
 #include "ExampleScreen.h"
+#include <iostream>
+
+//	Definitions.
+#define examplePageNum 1
 
 //	Constructor.
 //	Parameters:
 //		parmGui	--	Gui containing this screen.
 CExampleScreen::CExampleScreen(CExampleGui parmGui) : m_gui(&parmGui) {
-	//	Make self known to Gui.
-	m_gui->setExampleScreen(this);
-
 	//	Build child widgets.
-	m_mainBox = new Gtk::Box(Gtk::ORIENTATION_VERTICAL);
+	m_exampleMainBox = new Gtk::Box(Gtk::ORIENTATION_VERTICAL);
 		m_exampleScreenLabel = new Gtk::Label("This is the example screen!");
 		m_toStartButton = new Gtk::Button("To Start!");
 
 	//	Build screen.
-	m_mainBox->pack_start(*m_exampleScreenLabel, Gtk::PACK_EXPAND_WIDGET, 10);
-	m_mainBox->pack_start(*m_toStartButton, Gtk::PACK_EXPAND_WIDGET, 10);
+	m_exampleMainBox->pack_start(*m_exampleScreenLabel, Gtk::PACK_SHRINK, 10);
+	m_exampleMainBox->pack_start(*m_toStartButton, Gtk::PACK_SHRINK, 10);
 
 	//	Signal handlers.
 	m_toStartButton->signal_clicked().connect(sigc::bind<std::string>(sigc::mem_fun(*this, &CExampleScreen::swapScreen), "startscreen"));
+
+	//	Make self known to Gui.
+	m_gui->setExampleScreen(this);
+	m_gui->getNotebook()->append_page(*m_exampleMainBox);
 }
 
 //	Destructor.
 //	Parameters:	none.
 CExampleScreen::~CExampleScreen() {
 	m_gui->setExampleScreen(NULL);
+	delete m_exampleScreenLabel;
 	delete m_toStartButton;
-	delete m_mainBox;
+	delete m_exampleMainBox;
 }
 
 //	show	--	Tells window to display this screen.
 //	Parameters:	none.
 //	Returns:	void.
 void CExampleScreen::show() {
-	m_gui->clearWindow();
-	m_gui->getWindow()->add(*m_mainBox);
+	m_gui->getNotebook()->set_current_page(0);
 }
 
 //	swapScreen	--	Tells window to switch screens.

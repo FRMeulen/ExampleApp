@@ -18,7 +18,7 @@ protected:
 	CExampleGui* m_gui;
 
 	//	Child widget pointers.
-	Gtk::Box *m_mainBox;
+	Gtk::Box *m_exampleMainBox;
 		Gtk::Label *m_exampleScreenLabel;
 		Gtk::Button *m_toStartButton;
 public:

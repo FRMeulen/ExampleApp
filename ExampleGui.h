@@ -10,8 +10,8 @@
 #include <gtkmm-3.0/gtkmm.h>
 
 //	Predefinitions.
-class CExampleScreen;
 class CStartScreen;
+class CExampleScreen;
 
 //	Class interface.
 class CExampleGui {
@@ -19,6 +19,7 @@ protected:
 	//	App-required pointers.
 	Glib::RefPtr<Gtk::Application> app;
 	Gtk::Window *m_window;
+	Gtk::Notebook *m_pages;
 
 	//	Screen object pointers.
 	CExampleScreen *m_exampleScreen;
@@ -30,11 +31,10 @@ public:
 
 	//	Methods.
 	void start();
-	void clearWindow();
-	void testFunc();
 
 	//	Getters.
 	Gtk::Window* getWindow();
+	Gtk::Notebook* getNotebook();
 	CStartScreen* getStartScreen();
 	CExampleScreen* getExampleScreen();
 
