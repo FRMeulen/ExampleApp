@@ -9,7 +9,7 @@
 //	Constructor
 //	Parameters:
 //		parmGui	--	Gui containing this screen.
-CStartScreen::CStartScreen(CExampleGui parmGui) : m_gui(&parmGui) {
+CStartScreen::CStartScreen(CExampleGui *parmGui) : m_gui(parmGui) {
 	//	Build child widgets.
 	m_startMainBox = new Gtk::Box(Gtk::ORIENTATION_VERTICAL);
 		m_startScreenLabel = new Gtk::Label("This is the start screen!");

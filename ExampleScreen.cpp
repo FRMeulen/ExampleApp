@@ -9,7 +9,7 @@
 //	Constructor.
 //	Parameters:
 //		parmGui	--	Gui containing this screen.
-CExampleScreen::CExampleScreen(CExampleGui parmGui) : m_gui(&parmGui) {
+CExampleScreen::CExampleScreen(CExampleGui *parmGui) : m_gui(parmGui) {
 	//	Build child widgets.
 	m_exampleMainBox = new Gtk::Box(Gtk::ORIENTATION_VERTICAL);
 		m_exampleScreenLabel = new Gtk::Label("This is the example screen!");

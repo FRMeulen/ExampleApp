@@ -16,8 +16,8 @@ int main() {
 	CExampleGui *m_gui = new CExampleGui();
 	
 	//	Create screens.
-	CStartScreen *m_start = new CStartScreen(*m_gui);
-	CExampleScreen *m_screen = new CExampleScreen(*m_gui);
+	CStartScreen *m_start = new CStartScreen(m_gui);
+	CExampleScreen *m_screen = new CExampleScreen(m_gui);
 	
 	//	Start gui.
 	m_gui->start();

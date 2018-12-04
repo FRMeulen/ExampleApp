@@ -23,7 +23,7 @@ protected:
 		Gtk::Button *m_toStartButton;
 public:
 	//	Constructors & destructor.
-	CExampleScreen(CExampleGui parmGui);
+	CExampleScreen(CExampleGui *parmGui);
 	virtual ~CExampleScreen();
 
 	//	Methods.
